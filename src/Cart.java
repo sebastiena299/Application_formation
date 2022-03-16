@@ -26,6 +26,10 @@ public class Cart {
 	public static void addTrainingToCart(ArrayList<String> training) {
 		cart.put(cart.size() + 1, training);
 	}
+	
+	public static void removeTrainingToCart(int index) {
+		cart.remove(index);
+	}
 
 	public static void main(String[] args) {
 		
