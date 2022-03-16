@@ -19,6 +19,10 @@ public class Training {
 	private static int numberOfTrainings = 8;
 	private static HashMap<Integer, ArrayList<String>> trainings = new HashMap<Integer, ArrayList<String>>();
 	
+	/**
+	 * Génère des données de formation aléatoires
+	 * @return Retourne un tableau avec des données aléatoires
+	 */
 	public static ArrayList<String> generateRandomData() {
 		Random randomNumber = new Random();
 		ArrayList<String> array = new ArrayList<String>();
@@ -35,13 +39,19 @@ public class Training {
 		return array;
 	}
 	
+	/**
+	 * Remplissage des formations avec des données aléatoires
+	 */
 	public static void addRandomDataToTrainings() {
 		for(int i = 0; i < numberOfTrainings; i++) {
 			trainings.put(i + 1, generateRandomData());
 		}
 	}
 	
-	public static void displayAllCourses() {
+	/**
+	 * Affiche la liste des formations sous forme de tableau
+	 */
+	public static void displayAllTrainings() {
 		System.out.println();
 		String placement = "| %-5s | %-15s | %-10s | %-35s | %-10s |\n";
 		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
@@ -50,7 +60,6 @@ public class Training {
 		trainings.entrySet().stream()
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
 		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
-		
 	}
 
 	public static void main(String[] args) {
