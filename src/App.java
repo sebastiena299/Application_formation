@@ -9,7 +9,6 @@ public class App {
 		
 		Training.addRandomDataToTrainings();
 		Training.displayAllTrainings();
-
 	}
 
 }

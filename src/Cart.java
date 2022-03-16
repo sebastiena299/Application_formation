@@ -18,6 +18,14 @@ public class Cart {
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
 		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
 	}
+	
+	/**
+	 * Rajoute une formation au panier
+	 * @param training -> un tableau comportant la formation à ajouter
+	 */
+	public static void addTrainingToCart(ArrayList<String> training) {
+		cart.put(cart.size() + 1, training);
+	}
 
 	public static void main(String[] args) {
 		

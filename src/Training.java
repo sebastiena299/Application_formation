@@ -61,6 +61,15 @@ public class Training {
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
 		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
 	}
+	
+	/**
+	 * Retourne la formation selon l'index
+	 * @param Index de la formation
+	 * @return Retourne le tableau contenant la formation à l'index en question
+	 */
+	public static ArrayList<String> returnTrainingByIndex(int index) {
+		return trainings.get(index);
+	}
 
 	public static void main(String[] args) {
 	
