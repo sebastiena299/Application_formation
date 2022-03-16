@@ -4,13 +4,14 @@ import java.util.HashMap;
 public class Cart {
 	
 	public static HashMap<Integer, ArrayList<String>> cart = new HashMap<Integer, ArrayList<String>>();
+	private static int index = 1;
 	
 	/**
 	 * Affiche la liste des formations dans le panier
 	 */
 	public static void displayCart() {
 		System.out.println();
-		String placement = "| %-5s | %-15s | %-10s | %-35s | %-10s |\n";
+		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
 		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
 		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
 		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
@@ -24,9 +25,14 @@ public class Cart {
 	 * @param training -> un tableau comportant la formation à ajouter
 	 */
 	public static void addTrainingToCart(ArrayList<String> training) {
-		cart.put(cart.size() + 1, training);
+		cart.put(index , training);
+		index++;
 	}
 	
+	/**
+	 * Supprime une formation au panier
+	 * @param index de la formation à supprimer
+	 */
 	public static void removeTrainingToCart(int index) {
 		cart.remove(index);
 	}

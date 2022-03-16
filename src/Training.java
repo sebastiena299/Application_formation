@@ -4,17 +4,6 @@ import java.util.Random;
 
 public class Training {
 	
-	// Initialisation des couleurs
-	public static final String TEXT_RESET = "\u001B[0m";
-	public static final String TEXT_BLACK = "\u001B[30m";
-	public static final String TEXT_RED = "\u001B[31m";
-	public static final String TEXT_GREEN = "\u001B[32m";
-	public static final String TEXT_YELLOW = "\u001B[33m";
-	public static final String TEXT_BLUE = "\u001B[34m";
-	public static final String TEXT_PURPLE = "\u001B[35m";
-	public static final String TEXT_CYAN = "\u001B[36m";
-	public static final String TEXT_WHITE = "\u001B[37m";
-	
 	// Initialisation des variables
 	private static int numberOfTrainings = 8;
 	private static HashMap<Integer, ArrayList<String>> trainings = new HashMap<Integer, ArrayList<String>>();
@@ -53,7 +42,7 @@ public class Training {
 	 */
 	public static void displayAllTrainings() {
 		System.out.println();
-		String placement = "| %-5s | %-15s | %-10s | %-35s | %-10s |\n";
+		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
 		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
 		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
 		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
