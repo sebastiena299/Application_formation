@@ -8,6 +8,7 @@ public class App {
 	// Initialisation variables
 	private static int choice;
 	private static final String COLOR = "\u001B[36m";
+	private static final String ERROR = "\u001B[31m";
 	private static final String RESET = "\u001B[0m";
 	
 	/**
@@ -30,7 +31,7 @@ public class App {
 				break;
 			case 4:
 				// Afficher son panier
-				Cart.displayCart();
+				menuDisplayCart();
 				break;
 			case 5:
 				// Commander le contenu du panier
@@ -40,11 +41,14 @@ public class App {
 				break;
 			case 7:
 				// Quitter le programme
+				System.out.println("\n" + ERROR + " 🚀 " + RESET + "Merci de votre visite !");
 				System.exit(0);
 				sc.close();
 				break;
 			default:
+				System.out.println("\n" + ERROR + " 🚀 " + RESET + "Merci de votre visite !");
 				System.exit(0);
+				sc.close();
 				break;
 		}
 	}
@@ -74,17 +78,40 @@ public class App {
 		System.out.print(COLOR + "\n Saisir la formation à ajouter dans le panier : " + RESET);
 		while(!sc.hasNextInt()) sc.next();
 		int indexTraining = sc.nextInt();
-		Cart.addTrainingToCart(Training.returnTrainingByIndex(indexTraining));
+		if(indexTraining <= 0 || indexTraining > Training.sizeOfTrainings()) {
+			System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé aucune formation ne correspond à votre choix");
+		} else {
+			Cart.addTrainingToCart(Training.returnTrainingByIndex(indexTraining));
+		}
 	}
 	
 	/**
 	 * Menu pour gérer la suppression d'une formation au panier
 	 */
 	public static void menuRemoveTrainingToCart() {
-		System.out.print(COLOR + "\n Saisir la formation à supprimer dans le panier : " + RESET);
-		while(!sc.hasNextInt()) sc.next();
-		int indexTraining = sc.nextInt();
-		Cart.removeTrainingToCart(indexTraining);
+		if(Cart.sizeOfCart() <= 0) {
+			System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé vous n'avez aucune formation dans votre panier");
+		} else {
+			System.out.print(COLOR + "\n Saisir la formation à supprimer dans le panier : " + RESET);
+			while(!sc.hasNextInt()) sc.next();
+			int indexTraining = sc.nextInt();
+			if(indexTraining <= 0 || Cart.checkIndexForCart(indexTraining)) {
+				Cart.removeTrainingToCart(indexTraining);
+			} else {
+				System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé aucune formation ne correspond à votre choix");
+			}
+		}
+	}
+	
+	/**
+	 * Affiche les formations dans le panier, sauf si celui ci n'en contient aucune
+	 */
+	public static void menuDisplayCart() {
+		if(Cart.sizeOfCart() <= 0) {
+			System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé vous n'avez aucune formation dans votre panier");
+		} else {
+			Cart.displayCart();
+		}
 	}
 
 	/**

@@ -52,6 +52,14 @@ public class Training {
 	}
 	
 	/**
+	 * Retourne la taille du tableau trainings en entier
+	 * @return int -> Taille du tableau
+	 */
+	public static int sizeOfTrainings() {
+		return trainings.size();
+	}
+	
+	/**
 	 * Retourne la formation selon l'index
 	 * @param Index de la formation
 	 * @return Retourne le tableau contenant la formation à l'index en question

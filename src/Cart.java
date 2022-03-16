@@ -36,6 +36,26 @@ public class Cart {
 	public static void removeTrainingToCart(int index) {
 		cart.remove(index);
 	}
+	
+	/**
+	 * Vérifie que l'index de la formation est bien dans le tableau
+	 * @param indexOfTraining -> Index de la formation
+	 * @return boolean
+	 */
+	public static boolean checkIndexForCart(int indexOfTraining) {
+		if(cart.containsKey(indexOfTraining)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Retourne la taille du tableau cart en entier
+	 * @return int -> Taille du tableau
+	 */
+	public static int sizeOfCart() {
+		return cart.size();
+	}
 
 	public static void main(String[] args) {
 		
