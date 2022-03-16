@@ -8,5 +8,6 @@ An application that displays the list of available trainings, with the possibili
 - [x] :pager: Add a navigation menu
 - [x] :credit_card: Add a training to your shopping cart
 - [x] :x: Delete a training from your shopping cart
-- [ ] :pushpin: Message in case of empty shopping cart
+- [x] :pushpin: Message in case of empty shopping cart
 - [ ] :page_with_curl: Summary menu and order details
+
