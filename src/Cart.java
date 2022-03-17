@@ -57,6 +57,7 @@ public class Cart {
 	 * @return
 	 */
 	public static int TotalAmount(HashMap<Integer, ArrayList<String>> cart) {
+		sum = 0;
 		cart.entrySet().stream().forEach(e -> sum += Integer.parseInt(e.getValue().get(3)) * Integer.parseInt(e.getValue().get(4)));
 		return sum;
 	}
@@ -101,6 +102,9 @@ public class Cart {
 	 * Vide le panier (une fois la commande finie)
 	 */
 	public static void cleanCartAfterOrder() {
+		sum = 0;
+		cart.entrySet().stream()
+			.forEach(e -> e.getValue().set(4, "1"));
 		cart.clear();
 	}
 	
