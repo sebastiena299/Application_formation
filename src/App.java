@@ -7,9 +7,9 @@ public class App {
 	
 	// Initialisation variables
 	private static int choice;
-	private static final String COLOR = "\u001B[36m";
-	private static final String ERROR = "\u001B[31m";
-	private static final String RESET = "\u001B[0m";
+	public static final String COLOR = "\u001B[36m";
+	public static final String ERROR = "\u001B[31m";
+	public static final String RESET = "\u001B[0m";
 	
 	/**
 	 * Dirige l'utilisateur selon son choix
@@ -35,6 +35,7 @@ public class App {
 				break;
 			case 5:
 				// Commander le contenu du panier
+				menuOrderDescription();
 				break;
 			case 6:
 				// Changer la colorisation
@@ -50,6 +51,16 @@ public class App {
 				System.exit(0);
 				sc.close();
 				break;
+		}
+	}
+	
+	/**
+	 * Efface la console en sautant un nombre de ligne défini
+	 * @param number -> Nombre de ligne à sauter
+	 */
+	public static void clearConsole(int number) {
+		for(int i = 0; i < number; i++) {
+			System.out.println(System.lineSeparator());
 		}
 	}
 	
@@ -111,6 +122,31 @@ public class App {
 			System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé vous n'avez aucune formation dans votre panier");
 		} else {
 			Cart.displayCart();
+		}
+	}
+	
+	/**
+	 * Affiche les détails de la commande, et demande à l'utilisateur si il veux finaliser sa commande
+	 */
+	public static void menuOrderDescription() {
+		if(Cart.sizeOfCart() <= 0) {
+			System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé vous n'avez aucune formation dans votre panier");
+		} else {
+			clearConsole(100);
+			Extras.showLogoTraining();
+			Cart.orderDescription();
+			System.out.print("\n" + COLOR + " Voulez-vous valider votre commande [Oui/Non] ? " + RESET);
+			String validation = sc.next();
+			if(validation.equalsIgnoreCase("oui")) {
+				System.out.println("\n" + COLOR + " 🏷" + RESET + " Votre commande a été valider");
+				System.out.println("\n" + COLOR + " 🏷" + RESET + " Votre panier a été remis à zéro");
+				System.out.println();
+				Cart.cleanCartAfterOrder();
+				Extras.showLogoTransport();
+			} else {
+				System.out.println("\n" + ERROR + " ⛔" + RESET + " Votre commande a été annuler avec succès");
+				Cart.cleanCartAfterOrder();
+			}
 		}
 	}
 
