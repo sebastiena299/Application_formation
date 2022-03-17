@@ -13,7 +13,8 @@ An application that displays the list of available trainings, with the possibili
 - [x] :pushpin: Message in case of empty shopping cart
 - [x] :page_with_curl: Summary menu and order details
 - [x] :blue_book: Adding upcoming courses
-- [x] :gift: Added a function to change the color of the interface 
+- [x] :gift: Added a function to change the color of the interface
+- [x] :tada: Added quantity management for the shopping cart 
   
 ---
 
