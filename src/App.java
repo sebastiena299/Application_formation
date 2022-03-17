@@ -41,6 +41,10 @@ public class App {
 				// Changer la colorisation
 				break;
 			case 7:
+				// Afficher formation à venir
+				Training.displayUpcomingTrainings();
+				break;
+			case 8:
 				// Quitter le programme
 				System.out.println("\n" + ERROR + " 🚀 " + RESET + "Merci de votre visite !");
 				System.exit(0);
@@ -74,7 +78,8 @@ public class App {
 		System.out.println(" [4] - Afficher le panier");
 		System.out.println(" [5] - Passer la commande");
 		System.out.println(" [6] - Changer la couleur de l'interface");
-		System.out.println(" [7] - Quitter l'application");
+		System.out.println(" [7] - Afficher les formations à venir");
+		System.out.println(" [8] - Quitter l'application");
 		
 		System.out.print(COLOR + "\n Saisir le choix du menu : " + RESET);
 		while(!sc.hasNextInt()) sc.next();
@@ -158,12 +163,13 @@ public class App {
 		
 		// Initialise le tableau de formation avec des données aléatoires
 		Training.addRandomDataToTrainings();
+		Training.addRandomDataToUpcomingTrainings();
 		
 		// Message d'accueil
 		System.out.println(COLOR + "\n Bonjour est bienvenue dans mon application FullTrainings" + RESET);
 		System.out.println(COLOR + " Nous allons vous proposer une liste de formation actullement disponible" + RESET);
 		
-		while(choice != 7) {
+		while(choice != 8) {
 			menu();
 		}
 		

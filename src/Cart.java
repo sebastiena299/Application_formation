@@ -50,6 +50,11 @@ public class Cart {
 		return false;
 	}
 	
+	/**
+	 * Retourne le montant total du panier
+	 * @param cart
+	 * @return
+	 */
 	public static int TotalAmount(HashMap<Integer, ArrayList<String>> cart) {
 		cart.entrySet().stream().forEach(e -> sum += Integer.parseInt(e.getValue().get(3)));
 		return sum;

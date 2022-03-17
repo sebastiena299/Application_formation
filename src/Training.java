@@ -6,7 +6,9 @@ public class Training {
 	
 	// Initialisation des variables
 	private static int numberOfTrainings = 8;
+	private static int numberOfUpcomingTrainings = 4;
 	private static HashMap<Integer, ArrayList<String>> trainings = new HashMap<Integer, ArrayList<String>>();
+	private static HashMap<Integer, ArrayList<String>> upComingTrainings = new HashMap<Integer, ArrayList<String>>();
 	
 	/**
 	 * Génère des données de formation aléatoires
@@ -38,6 +40,15 @@ public class Training {
 	}
 	
 	/**
+	 * Remplissage des formations à venir avec des données aléatoires
+	 */
+	public static void addRandomDataToUpcomingTrainings() {
+		for(int i = 0; i < numberOfUpcomingTrainings; i++) {
+			upComingTrainings.put(i + 1, generateRandomData());
+		}
+	}
+	
+	/**
 	 * Affiche la liste des formations sous forme de tableau
 	 */
 	public static void displayAllTrainings() {
@@ -47,6 +58,21 @@ public class Training {
 		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
 		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
 		trainings.entrySet().stream()
+			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
+		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
+	}
+	
+	/**
+	 * Affiche les formations à venir sous forme de tableau
+	 */
+	public static void displayUpcomingTrainings() {
+		System.out.println("\n" + App.COLOR + " 🎁" + App.RESET + " Les formations à venir : ");
+		System.out.println();
+		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
+		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
+		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
+		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
+		upComingTrainings.entrySet().stream()
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
 		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
 	}
