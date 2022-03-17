@@ -7,7 +7,7 @@ public class App {
 	
 	// Initialisation variables
 	private static int choice;
-	public static final String COLOR = "\u001B[36m";
+	public static String COLOR = "\u001B[36m";
 	public static final String ERROR = "\u001B[31m";
 	public static final String RESET = "\u001B[0m";
 	
@@ -39,6 +39,7 @@ public class App {
 				break;
 			case 6:
 				// Changer la colorisation
+				menuChangeColorInterface();
 				break;
 			case 7:
 				// Afficher formation à venir
@@ -153,6 +154,22 @@ public class App {
 				Cart.cleanCartAfterOrder();
 			}
 		}
+	}
+	
+	/**
+	 * Menu pour changer la couleur de l'interface
+	 */
+	public static void menuChangeColorInterface() {
+		System.out.println("\n [1] - Rouge");
+		System.out.println(" [2] - Vert");
+		System.out.println(" [3] - Bleu");
+		System.out.println(" [4] - Jaune");
+		System.out.println(" [5] - Violet");
+		System.out.println(" [6] - Cyan");
+		System.out.print(COLOR + "\n Saisir le choix de la couleur : " + RESET);
+		while(!sc.hasNextInt()) sc.next();
+		int colorChoice = sc.nextInt();
+		Extras.changeColorInterface(colorChoice);
 	}
 
 	/**

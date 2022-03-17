@@ -13,12 +13,12 @@ public class Cart {
 	public static void displayCart() {
 		System.out.println();
 		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
-		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
+		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
 		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
 		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
 		cart.entrySet().stream()
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
-		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
+		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
 	}
 	
 	/**
@@ -67,12 +67,12 @@ public class Cart {
 		System.out.println("\n" + App.COLOR + " 🎁" + App.RESET + " Votre commande : ");
 		System.out.println();
 		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
-		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
+		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
 		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
 		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
 		cart.entrySet().stream()
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
-		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
+		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
 		System.out.println();
 		System.out.println(" Nombres d'articles : " + sizeOfCart());
 		System.out.println(" Montant total de la commande : " + TotalAmount(cart) + "€");

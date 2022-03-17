@@ -54,12 +54,12 @@ public class Training {
 	public static void displayAllTrainings() {
 		System.out.println();
 		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
-		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
+		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
 		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
 		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
 		trainings.entrySet().stream()
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
-		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
+		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
 	}
 	
 	/**
@@ -69,12 +69,12 @@ public class Training {
 		System.out.println("\n" + App.COLOR + " 🎁" + App.RESET + " Les formations à venir : ");
 		System.out.println();
 		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
-		System.out.printf(placement, "▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀", "▀▀▀▀▀▀▀▀▀▀");
+		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
 		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
 		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
 		upComingTrainings.entrySet().stream()
 			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
-		System.out.printf(placement, "▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄", "▄▄▄▄▄▄▄▄▄▄");
+		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
 	}
 	
 	/**
