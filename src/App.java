@@ -95,10 +95,15 @@ public class App {
 		System.out.print(COLOR + "\n Saisir la formation à ajouter dans le panier : " + RESET);
 		while(!sc.hasNextInt()) sc.next();
 		int indexTraining = sc.nextInt();
-		if(indexTraining <= 0 || indexTraining > Training.sizeOfTrainings()) {
-			System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé aucune formation ne correspond à votre choix");
+		if(Training.trainings.containsKey(indexTraining)) {
+			if(Cart.cart.containsKey(indexTraining)) {
+				int quantity = Integer.parseInt(Cart.cart.get(indexTraining).get(4));
+				Cart.cart.get(indexTraining).set(4, Integer.toString(++quantity));
+			} else {
+				Cart.addTrainingToCart(indexTraining, Training.trainings.get(indexTraining));
+			}
 		} else {
-			Cart.addTrainingToCart(Training.returnTrainingByIndex(indexTraining));
+			System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé aucune formation ne correspond à votre choix");
 		}
 	}
 	
@@ -112,8 +117,14 @@ public class App {
 			System.out.print(COLOR + "\n Saisir la formation à supprimer dans le panier : " + RESET);
 			while(!sc.hasNextInt()) sc.next();
 			int indexTraining = sc.nextInt();
-			if(indexTraining <= 0 || Cart.checkIndexForCart(indexTraining)) {
-				Cart.removeTrainingToCart(indexTraining);
+			if(Cart.cart.containsKey(indexTraining)) {
+				if(Integer.parseInt(Cart.cart.get(indexTraining).get(4)) > 1) {
+					int quantity = Integer.parseInt(Cart.cart.get(indexTraining).get(4));
+					--quantity;
+					Cart.cart.get(indexTraining).set(4, Integer.toString(quantity));
+				} else {
+					Cart.removeTrainingToCart(indexTraining);
+				}
 			} else {
 				System.out.println("\n" + ERROR + " ⛔" + RESET + " Désolé aucune formation ne correspond à votre choix");
 			}

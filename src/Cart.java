@@ -3,8 +3,9 @@ import java.util.HashMap;
 
 public class Cart {
 	
+	// Initialisation des variables
 	public static HashMap<Integer, ArrayList<String>> cart = new HashMap<Integer, ArrayList<String>>();
-	private static int index = 1;
+	private static int nbrOfTrainings;
 	private static int sum;
 	
 	/**
@@ -12,22 +13,22 @@ public class Cart {
 	 */
 	public static void displayCart() {
 		System.out.println();
-		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
-		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
-		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
-		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
+		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s | %-10s |\n";
+		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
+		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX", "QUANTITE");
+		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------",  "----------");
 		cart.entrySet().stream()
-			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
-		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
+			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€"), e.getValue().get(4)));
+		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
 	}
 	
 	/**
 	 * Rajoute une formation au panier
 	 * @param training -> un tableau comportant la formation à ajouter
 	 */
-	public static void addTrainingToCart(ArrayList<String> training) {
+	public static void addTrainingToCart(int index, ArrayList<String> training) {
 		cart.put(index , training);
-		index++;
+		cart.get(index).add("1");
 	}
 	
 	/**
@@ -56,7 +57,7 @@ public class Cart {
 	 * @return
 	 */
 	public static int TotalAmount(HashMap<Integer, ArrayList<String>> cart) {
-		cart.entrySet().stream().forEach(e -> sum += Integer.parseInt(e.getValue().get(3)));
+		cart.entrySet().stream().forEach(e -> sum += Integer.parseInt(e.getValue().get(3)) * Integer.parseInt(e.getValue().get(4)));
 		return sum;
 	}
 	
@@ -66,15 +67,15 @@ public class Cart {
 	public static void orderDescription() {
 		System.out.println("\n" + App.COLOR + " 🎁" + App.RESET + " Votre commande : ");
 		System.out.println();
-		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s |\n";
-		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
-		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX");
-		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------");
+		String placement = " | %-5s | %-15s | %-10s | %-35s | %-10s | %-10s |\n";
+		System.out.printf(placement, App.COLOR +  "▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR + "▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET, App.COLOR +  "▀▀▀▀▀▀▀▀▀▀" + App.RESET);
+		System.out.printf(placement, "ID", "COURS", "NB/JOURS", "DESCRIPTION", "PRIX", "QUANTITE");
+		System.out.printf(placement, "-----", "---------------", "----------", "-----------------------------------", "----------",  "----------");
 		cart.entrySet().stream()
-			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€")));
-		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
+			.forEach(e -> System.out.printf(placement, e.getKey(), e.getValue().get(0), e.getValue().get(1), e.getValue().get(2), e.getValue().get(3).concat("€"), e.getValue().get(4)));
+		System.out.printf(placement, App.COLOR + "▄▄▄▄▄" + App.RESET, App.COLOR +  "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET, App.COLOR + "▄▄▄▄▄▄▄▄▄▄" + App.RESET);
 		System.out.println();
-		System.out.println(" Nombres d'articles : " + sizeOfCart());
+		System.out.println(" Nombres d'articles : " + returnNumberOfTrainingsInCart());
 		System.out.println(" Montant total de la commande : " + TotalAmount(cart) + "€");
 	}
 	
@@ -84,6 +85,16 @@ public class Cart {
 	 */
 	public static int sizeOfCart() {
 		return cart.size();
+	}
+	
+	/**
+	 * Retourne le nombre de formation dans la panier pour la commande
+	 * @return
+	 */
+	public static int returnNumberOfTrainingsInCart() {
+		cart.entrySet().stream()
+			.forEach(e -> nbrOfTrainings += Integer.parseInt(e.getValue().get(4)));
+		return nbrOfTrainings;
 	}
 	
 	/**

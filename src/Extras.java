@@ -49,9 +49,11 @@ public class Extras {
 		case 5:
 			// Violet
 			App.COLOR = "\u001B[35m";
+			break;
 		case 6:
 			// Cyan
 			App.COLOR = "\u001B[36m";
+			break;
 		default:
 			System.out.println("\n" + App.ERROR + " ⛔" + App.RESET + " Désolé aucune couleur ne correspond à votre choix");
 			break;

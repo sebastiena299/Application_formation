@@ -7,7 +7,7 @@ public class Training {
 	// Initialisation des variables
 	private static int numberOfTrainings = 8;
 	private static int numberOfUpcomingTrainings = 4;
-	private static HashMap<Integer, ArrayList<String>> trainings = new HashMap<Integer, ArrayList<String>>();
+	public static HashMap<Integer, ArrayList<String>> trainings = new HashMap<Integer, ArrayList<String>>();
 	private static HashMap<Integer, ArrayList<String>> upComingTrainings = new HashMap<Integer, ArrayList<String>>();
 	
 	/**
