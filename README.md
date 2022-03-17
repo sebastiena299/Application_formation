@@ -2,6 +2,8 @@
 
 An application that displays the list of available trainings, with the possibility for the user to put trainings in his shopping cart.
 
+---
+
 ## **Features**
 
 - [x] :computer: Display of the training list 
@@ -11,4 +13,11 @@ An application that displays the list of available trainings, with the possibili
 - [x] :pushpin: Message in case of empty shopping cart
 - [x] :page_with_curl: Summary menu and order details
 - [x] :blue_book: Adding upcoming courses
+- [x] :gift: Added a function to change the color of the interface 
+  
+---
 
+### **Guide**
+
+pour cloner le repository :  
+`git clone https://github.com/sebastiena299/Application_formation.git`
